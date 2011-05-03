@@ -236,6 +236,8 @@ void MainForm::on_actionSync_triggered()
 
 void MainForm::slotSyncList(QNetworkReply* pReply)
 {
+    settings->setValue(LIST_TEXT, MyCheckBoxContainer::getInstance()->getListText());
+    SystemSettings::getInstance()->saveCurrentList();
     QByteArray data=pReply->readAll();
     QString list = QString::fromUtf8(data);
     settings->setValue(LIST_TEXT, list);
