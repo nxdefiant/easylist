@@ -166,14 +166,14 @@ void MainForm::on_actionAbout_triggered()
 {
     qDebug() << "About";
     QString aboutText;
-    aboutText.append("<html>");
+    aboutText.append("<html><body>");
     aboutText.append("EasyList (c) 2010-");
     aboutText.append(QDate::currentDate().toString("yyyy"));
     aboutText.append("<br><br>");
     aboutText.append("Created by Willem Liu.<br>");
     aboutText.append("Created with QtCreator.<br><br>");
     aboutText.append("Please <a href='http://www.willemliu.nl/donate'>donate</a> any amount you deem this app is worthy to keep me going on.<br><br>");
-    aboutText.append("</html>");
+    aboutText.append("</body></html>");
     QMessageBox::about(this, "EasyList", aboutText);
 }
 

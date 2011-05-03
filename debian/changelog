@@ -1,6 +1,5 @@
-easylist (0.3.25) unstable; urgency=low
+easylist (0.3.26) unstable; urgency=low
 
-  * Merged with sync window improvements from Dotblank.
-  * Added some minor improvements of my own.
+  * Initial Release.
 
- -- Willem Liu <willem.liu@gmail.com>  Sat, 30 Apr 2011 3:11:23 +0100
+ -- Willem Liu <willem.liu@gmail.com>  Sat, 30 Apr 2011 11:57:57 +0200

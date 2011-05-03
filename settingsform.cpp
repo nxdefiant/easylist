@@ -6,7 +6,6 @@ SettingsForm::SettingsForm(QWidget *parent) :
     ui(new Ui::SettingsForm)
 {
     ui->setupUi(this);
-    ui->syncTipLabel->setOpenExternalLinks(true);
     ui->syncUsernameLineEdit->setInputMethodHints(Qt::ImhNoAutoUppercase);
     ui->syncPasswordLineEdit->setInputMethodHints(Qt::ImhNoAutoUppercase);
     ui->syncUrlLineEdit->setInputMethodHints(Qt::ImhNoAutoUppercase);

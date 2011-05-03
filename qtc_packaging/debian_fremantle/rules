@@ -27,7 +27,6 @@ build-stamp: configure-stamp
 	dh_testdir
 
 	# Add here commands to compile the package.
-	qmake
 	$(MAKE)
 	#docbook-to-man debian/easylist.sgml > easylist.1
 
@@ -39,7 +38,7 @@ clean:
 	rm -f build-stamp configure-stamp
 
 	# Add here commands to clean up after the build process.
-	# $(MAKE) clean
+	$(MAKE) clean
 
 	dh_clean 
 
@@ -83,7 +82,7 @@ binary-arch: build install
 #	dh_perl
 #	dh_makeshlibs
 	dh_installdeb
-	# dh_shlibdeps
+	# dh_shlibdeps                      # Uncomment this line for publishing!
 	dh_gencontrol
 	dh_md5sums
 	dh_builddeb
