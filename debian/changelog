@@ -1,5 +1,7 @@
 easylist (0.3.26) unstable; urgency=low
 
-  * Initial Release.
+	* Changed default sync website to http://easylist.willemliu.nl
+	* Changed default sync URL to http://easylist.willemliu.nl/getList.php
+  * Minor improvements to the About box.
 
  -- Willem Liu <willem.liu@gmail.com>  Sat, 30 Apr 2011 11:57:57 +0200

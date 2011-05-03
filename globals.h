@@ -16,7 +16,7 @@
 #define USERNAME "Username"
 #define PASSWORD "Password"
 #define SYNC_URL "SyncUrl"
-#define DEFAULT_SYNC_URL "http://www.willemliu.nl/qt/maemo/easylist/getList.php"
+#define DEFAULT_SYNC_URL "http://easylist.willemliu.nl/getList.php"
 #define SYNC_LIST_NAME "SyncList"
 
 static const int BACK = 0;

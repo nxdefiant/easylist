@@ -28,7 +28,12 @@ void SettingsForm::shown()
         ui->syncPasswordLineEdit->setReadOnly(true);
     }
 
-    ui->syncUrlLineEdit->setText(settings->value(SYNC_URL, DEFAULT_SYNC_URL).toString());
+    QString syncUrl = settings->value(SYNC_URL, DEFAULT_SYNC_URL).toString();
+    if(syncUrl.compare("http://www.willemliu.nl/qt/maemo/easylist/getList.php") == 0)
+    {
+        syncUrl = "http://easylist.willemliu.nl/getList.php";
+    }
+    ui->syncUrlLineEdit->setText(syncUrl);
     ui->syncUsernameLineEdit->setFocus(Qt::ActiveWindowFocusReason);
 }
 
