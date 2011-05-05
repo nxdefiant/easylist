@@ -72,13 +72,18 @@ void ChooseListForm::on_savePushButton_clicked()
 
 void ChooseListForm::on_removePushButton_clicked()
 {
-    if(ui->listWidget->selectedItems().size() > 0)
+    int res = QMessageBox::warning(this, "Delete list", "The selected list will be deleted.", QMessageBox::Ok, QMessageBox::Cancel);
+
+    if(res == QMessageBox::Ok)
     {
-        qDebug() << "Remove" << ui->listWidget->currentRow();
-        QListWidgetItem * item = ui->listWidget->takeItem(ui->listWidget->currentRow());
-        settings->remove(item->text());
-        settings->setValue(SELECTED_LIST_NAME, LIST_TEXT);
-        saveList();
+        if(ui->listWidget->selectedItems().size() > 0)
+        {
+            qDebug() << "Remove" << ui->listWidget->currentRow();
+            QListWidgetItem * item = ui->listWidget->takeItem(ui->listWidget->currentRow());
+            settings->remove(item->text());
+            settings->setValue(SELECTED_LIST_NAME, LIST_TEXT);
+            saveList();
+        }
     }
 }
 

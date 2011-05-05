@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QDebug>
+#include <QMessageBox>
 #ifdef Q_WS_MAEMO_5
 #include <QMaemo5InformationBox>
 #endif

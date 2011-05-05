@@ -1,7 +1,5 @@
-easylist (0.3.26) unstable; urgency=low
+easylist (0.3.27) unstable; urgency=low
 
-  * Changed default sync website to http://easylist.willemliu.nl
-  * Changed default sync URL to http://easylist.willemliu.nl/getList.php
-  * Minor improvements to the About box.
+  * Added confirmation prompt when deleting List.
 
- -- Willem Liu <willem.liu@gmail.com>  Sat, 3 May 2011 19:53:57 +0200
+ -- Willem Liu <willem.liu@gmail.com>  Thu, 05 May 2011 10:43:11 +0200
