@@ -1,5 +1,5 @@
-easylist (0.3.27) unstable; urgency=low
+easylist (0.3.28) unstable; urgency=low
 
-  * Added confirmation prompt when deleting List.
+  * Added confirmation prompt when syncing List.
 
- -- Willem Liu <willem.liu@gmail.com>  Thu, 05 May 2011 10:43:11 +0200
+ -- Willem Liu <willem.liu@gmail.com>  Fri, 06 May 2011 10:42:28 +0200

@@ -7,7 +7,7 @@ SystemSettings::SystemSettings()
 {
     ++instances;
     settings = new QSettings(WILLEM_LIU, EASY_LIST);
-#ifdef Q_WS_MAEMO_5
+#if defined(Q_WS_MAEMO_5) || defined(Q_WS_HILDON) || defined(MEEGO_EDITION_HARMATTAN)
     // Connect to DBUS of keyboard slider.
     QDBusConnection::systemBus().connect(QString("org.freedesktop.Hal"),
                                          DBUS_KEYBOARD_SLIDE,
@@ -34,7 +34,7 @@ void SystemSettings::slotKeyboardSlide()
 bool SystemSettings::getKeyboardClosed()
 {
     bool closed = false;
-#ifdef Q_WS_MAEMO_5
+#if defined(Q_WS_MAEMO_5) || defined(Q_WS_HILDON) || defined(MEEGO_EDITION_HARMATTAN)
     QDBusInterface propertyInterface("org.freedesktop.Hal",
                     DBUS_KEYBOARD_SLIDE,
                     "org.freedesktop.Hal.Device",

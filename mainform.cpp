@@ -198,7 +198,7 @@ void MainForm::on_actionAuto_Orientation_triggered()
     qDebug() << "Auto orientation" << ui->actionAuto_Orientation->isChecked();
     if(ui->actionAuto_Orientation->isChecked())
     {
-#ifdef Q_WS_MAEMO_5
+#if defined(Q_WS_MAEMO_5) || defined(Q_WS_HILDON)
         setAttribute(Qt::WA_Maemo5PortraitOrientation, false);
         setAttribute(Qt::WA_Maemo5LandscapeOrientation, false);
         setAttribute(Qt::WA_Maemo5AutoOrientation, true);
@@ -224,14 +224,19 @@ void MainForm::on_actionLists_triggered()
 
 void MainForm::on_actionSync_triggered()
 {
-    QString username = settings->value(USERNAME, "").toString();
-    QString password = settings->value(PASSWORD, "").toString();
-    QString url = settings->value(SYNC_URL, DEFAULT_SYNC_URL).toString();
-    url.append("?username=" + username);
-    url.append("&password=" + password);
-    qDebug() << url;
-    requestWebpage->post(url,settings->value(LIST_TEXT,"").toString().toUtf8());
-    //requestWebpage->fetch(url);
+    int res = QMessageBox::warning(this, "Synchronize list", "If you haven't saved your current list under a list name other than SyncList then it will be overwritten by the items on the website.", QMessageBox::Ok, QMessageBox::Cancel);
+
+    if(res == QMessageBox::Ok)
+    {
+        QString username = settings->value(USERNAME, "").toString();
+        QString password = settings->value(PASSWORD, "").toString();
+        QString url = settings->value(SYNC_URL, DEFAULT_SYNC_URL).toString();
+        url.append("?username=" + username);
+        url.append("&password=" + password);
+        qDebug() << url;
+        requestWebpage->post(url,settings->value(LIST_TEXT,"").toString().toUtf8());
+        //requestWebpage->fetch(url);
+    }
 }
 
 void MainForm::slotSyncList(QNetworkReply* pReply)
