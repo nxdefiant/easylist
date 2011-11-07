@@ -12,6 +12,7 @@
 #include <QAbstractTransition>
 #include <QPropertyAnimation>
 #include <QCloseEvent>
+#include <QProcess>
 #include "slidewidget.h"
 #include "listform.h"
 #include "editform.h"
@@ -66,6 +67,8 @@ private slots:
     void on_actionRotate_triggered();
     void on_actionSync_triggered();
     void on_actionSetting_triggered();
+    void on_actionKeep_backlight_on_triggered();
+    void Keep_backlight_on();
 };
 
 #endif // MAINFORM_H

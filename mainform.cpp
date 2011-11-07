@@ -8,6 +8,11 @@ MainForm::MainForm(QWidget *parent) :
     ui->setupUi(this);
     settings = new QSettings(WILLEM_LIU, EASY_LIST);
 
+     /* Make a call every x milliseconds */
+     QTimer *timer = new QTimer(this);
+     connect(timer, SIGNAL(timeout()), this, SLOT(Keep_backlight_on()));
+     timer->start(30000);
+
     requestWebpage = new RequestWebpage(this);
     connect(requestWebpage, SIGNAL(finished(QNetworkReply*)), this, SLOT(slotSyncList(QNetworkReply*)));
 
@@ -27,6 +32,14 @@ MainForm::MainForm(QWidget *parent) :
     }
     ui->actionChecked_bottom->setChecked(settings->value(CHECKED_ITEMS_TO_BOTTOM).toBool());
     on_actionChecked_bottom_triggered();
+
+    // Set a default value for CHECKED_BACKLIGHT
+    if(settings->contains(CHECKED_BACKLIGHT) == false)
+    {
+        settings->setValue(CHECKED_BACKLIGHT, false);
+    }
+    ui->actionKeep_backlight_on->setChecked(settings->value(CHECKED_BACKLIGHT).toBool());
+    on_actionKeep_backlight_on_triggered();
 
     // Create a default for landscape mode.
     landscape = settings->value(LANDSCAPE).toBool();
@@ -261,4 +274,22 @@ void MainForm::slotSyncList(QNetworkReply* pReply)
 void MainForm::on_actionSetting_triggered()
 {
     changeWidget(3);
+}
+
+void MainForm::on_actionKeep_backlight_on_triggered()
+{
+    bool setBacklight = ui->actionKeep_backlight_on->isChecked();
+    qDebug() << "Checked Backlight" << setBacklight;
+    settings->setValue(CHECKED_BACKLIGHT, setBacklight);
+}
+
+void MainForm::Keep_backlight_on()
+{
+    bool setBacklight = ui->actionKeep_backlight_on->isChecked();
+    if(setBacklight)
+    {
+        /* qDebug() << "Backlight: " << setBacklight; */
+        QString strUnlock = "dbus-send --system --type=method_call --dest=com.nokia.mce /com/nokia/mce/request com.nokia.mce.request.req_display_blanking_pause";
+        QProcess::startDetached(strUnlock);
+    }
 }

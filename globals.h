@@ -8,6 +8,7 @@
 #define SELECTED_LIST_NAME "SelectedListName"
 #define DBUS_KEYBOARD_SLIDE "/org/freedesktop/Hal/devices/platform_slide"
 #define CHECKED_ITEMS_TO_BOTTOM "CheckedItemsToBottom"
+#define CHECKED_BACKLIGHT "MyCheckedBacklight"
 #define LANDSCAPE "Landscape"
 #define PORTRAIT "Portrait"
 #define AUTO_ORIENTATION "AutoOrientation"
