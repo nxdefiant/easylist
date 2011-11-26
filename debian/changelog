@@ -1,5 +1,6 @@
-easylist (0.3.29) unstable; urgency=low
+easylist (0.3.30) unstable; urgency=low
 
-  * Merged with keep backlight on code from Ade.
+  * Keep backlight on code improved a bit. Timer is stopped when turned off. When turned on the interval is now 5 seconds.
 
- -- Willem Liu <willem.liu@gmail.com>  Tue, 08 Nov 2011 21:51:00 +0200
+ -- Willem Liu <willem.liu@gmail.com>  Thu, 05 May 2011 10:43:11 +0200
+
