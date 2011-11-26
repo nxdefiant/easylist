@@ -1,4 +1,4 @@
-easylist (0.3.30) unstable; urgency=low
+easylist (0.3.31) unstable; urgency=low
 
   * Keep backlight on code improved a bit. Timer is stopped when turned off. When turned on the interval is now 5 seconds.
 

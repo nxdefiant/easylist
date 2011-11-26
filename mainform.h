@@ -2,6 +2,7 @@
 #define MAINFORM_H
 
 #include <QMainWindow>
+#include <QTimer>
 #include <QSettings>
 #include <QDate>
 #include <QDebug>
