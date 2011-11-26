@@ -1,5 +1,5 @@
-easylist (0.3.28) unstable; urgency=low
+easylist (0.3.29) unstable; urgency=low
 
-  * Added confirmation prompt when syncing List.
+  * Merged with keep backlight on code from Ade.
 
- -- Willem Liu <willem.liu@gmail.com>  Fri, 06 May 2011 10:42:28 +0200
+ -- Willem Liu <willem.liu@gmail.com>  Tue, 08 Nov 2011 21:51:00 +0200

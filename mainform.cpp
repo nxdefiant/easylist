@@ -8,10 +8,9 @@ MainForm::MainForm(QWidget *parent) :
     ui->setupUi(this);
     settings = new QSettings(WILLEM_LIU, EASY_LIST);
 
-     /* Make a call every x milliseconds */
-     QTimer *timer = new QTimer(this);
-     connect(timer, SIGNAL(timeout()), this, SLOT(Keep_backlight_on()));
-     timer->start(30000);
+    /* Make a call every x milliseconds */
+    timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(Keep_backlight_on()));
 
     requestWebpage = new RequestWebpage(this);
     connect(requestWebpage, SIGNAL(finished(QNetworkReply*)), this, SLOT(slotSyncList(QNetworkReply*)));
@@ -280,6 +279,18 @@ void MainForm::on_actionSetting_triggered()
 void MainForm::on_actionKeep_backlight_on_triggered()
 {
     bool setBacklight = ui->actionKeep_backlight_on->isChecked();
+    if(setBacklight)
+    {
+	if(timer->isActive() == false)
+        {
+            timer->start(5000);
+        }
+    }
+    else
+    {
+        qDebug() << "Backlight: " << setBacklight;
+        timer->stop();
+    }
     qDebug() << "Checked Backlight" << setBacklight;
     settings->setValue(CHECKED_BACKLIGHT, setBacklight);
 }
@@ -289,7 +300,7 @@ void MainForm::Keep_backlight_on()
     bool setBacklight = ui->actionKeep_backlight_on->isChecked();
     if(setBacklight)
     {
-        /* qDebug() << "Backlight: " << setBacklight; */
+        qDebug() << "Backlight: " << setBacklight;
         QString strUnlock = "dbus-send --system --type=method_call --dest=com.nokia.mce /com/nokia/mce/request com.nokia.mce.request.req_display_blanking_pause";
         QProcess::startDetached(strUnlock);
     }

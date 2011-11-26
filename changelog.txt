@@ -1,3 +1,9 @@
+easylist (0.3.30) unstable; urgency=low
+
+  * Keep backlight on code improved a bit. Timer is stopped when turned off. When turned on the interval is now 5 seconds.
+
+ -- Willem Liu <willem.liu@gmail.com>  Thu, 05 May 2011 10:43:11 +0200
+
 easylist (0.3.27) unstable; urgency=low
 
   * Added confirmation prompt when deleting List.

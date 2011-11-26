@@ -42,6 +42,7 @@ public slots:
     void changeWidget(int step);
     void stateOutFinished();
 private:
+    QTimer *timer;
     QSettings *settings;
     bool landscape;
     bool tempLandscapeMode;
