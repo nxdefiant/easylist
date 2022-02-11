@@ -51,7 +51,7 @@ unix {
     QT += dbus
     #VARIABLES
     PREFIX = /usr
-    BINDIR = /opt/easylist/bin
+    BINDIR = $$PREFIX/bin
     DATADIR = $$PREFIX/share
 
     DEFINES += DATADIR=\\\"$$DATADIR\\\" PKGDATADIR=\\\"$$PKGDATADIR\\\"

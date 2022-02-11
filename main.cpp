@@ -20,7 +20,7 @@
  *  THE SOFTWARE.
  */
 
-#include <QtGui/QApplication>
+#include <QApplication>
 #include "mainform.h"
 
 int main(int argc, char *argv[])

@@ -1,3 +1,9 @@
+easylist (0.3.32) unstable; urgency=low
+
+  * Port to qt5
+
+ -- Erik Andresen <erik@vontaene.de>  Wed, 09 Feb 2022 15:28:18 +0100
+
 easylist (0.3.31) unstable; urgency=low
 
   * Keep backlight on code improved a bit. Timer is stopped when turned off. When turned on the interval is now 5 seconds.

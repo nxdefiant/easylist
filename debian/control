@@ -2,7 +2,7 @@ Source: easylist
 Section: user/utilities
 Priority: optional
 Maintainer: Willem Liu <willem.liu@gmail.com>
-Build-Depends: debhelper (>= 5), libqt4-dev, autotools-dev, libhildon1 (>= 2.2)
+Build-Depends: debhelper (>= 5), qtbase5-dev, autotools-dev, libhildon1 (>= 2.2), libqt5maemo5-dev, libqt5x11extras5-dev
 Standards-Version: 3.7.3
 Homepage: http://gitorious.com/easylist
 

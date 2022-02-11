@@ -90,6 +90,9 @@ MainForm::MainForm(QWidget *parent) :
     ui->stackedWidget->addWidget(chooseListForm);
     ui->stackedWidget->addWidget(settingsForm);
     ui->stackedWidget->setCurrentWidget(listForm);
+#ifdef Q_WS_MAEMO_5
+    menuBar()->hide(); // hide menubar
+#endif
 }
 
 MainForm::~MainForm()
@@ -146,9 +149,7 @@ void MainForm::setLandscapeMode(bool landscape)
         tempLandscapeMode = true;
         qDebug() << LANDSCAPE;
 #if defined(Q_WS_MAEMO_5) || defined(Q_WS_HILDON)
-        setAttribute(Qt::WA_Maemo5AutoOrientation, false);
-        setAttribute(Qt::WA_Maemo5LandscapeOrientation, true);
-        setAttribute(Qt::WA_Maemo5PortraitOrientation, false);
+        setProperty("X-Maemo-Orientation", 0); // landscape
 #endif
     }
     else
@@ -156,9 +157,7 @@ void MainForm::setLandscapeMode(bool landscape)
         tempLandscapeMode = false;
         qDebug() << PORTRAIT;
 #if defined(Q_WS_MAEMO_5) || defined(Q_WS_HILDON)
-        setAttribute(Qt::WA_Maemo5AutoOrientation, false);
-        setAttribute(Qt::WA_Maemo5PortraitOrientation, true);
-        setAttribute(Qt::WA_Maemo5LandscapeOrientation, false);
+        setProperty("X-Maemo-Orientation", 1); // portrait
 #endif
     }
 }
@@ -212,9 +211,7 @@ void MainForm::on_actionAuto_Orientation_triggered()
     if(ui->actionAuto_Orientation->isChecked())
     {
 #if defined(Q_WS_MAEMO_5) || defined(Q_WS_HILDON)
-        setAttribute(Qt::WA_Maemo5PortraitOrientation, false);
-        setAttribute(Qt::WA_Maemo5LandscapeOrientation, false);
-        setAttribute(Qt::WA_Maemo5AutoOrientation, true);
+        setProperty("X-Maemo-Orientation", 2); // Auto orientation
 #endif
     }
     else
@@ -281,7 +278,7 @@ void MainForm::on_actionKeep_backlight_on_triggered()
     bool setBacklight = ui->actionKeep_backlight_on->isChecked();
     if(setBacklight)
     {
-	if(timer->isActive() == false)
+        if(timer->isActive() == false)
         {
             timer->start(5000);
         }
